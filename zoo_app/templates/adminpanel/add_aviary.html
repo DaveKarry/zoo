@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h>добавление вольеров на главную страницу</h>
+
+<h1>Новая запись в Вольеры</h1>
+ <form method="POST" class="new_person">
+     {% csrf_token %}
+    {{ form.as_p }}
+ <button type="submit">Save</button>
+ </form>
+
+{% endblock %}

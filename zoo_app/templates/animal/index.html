@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="aviary_block">
+    {% for el in animal %}
+    <h2> {{ el.name }}</h2>
+    <p> {{ el.description }}</p>
+    <h1> 11{{ el.AnimaliaType.type }}</h1>
+    <h1> 22{{ el.AnimaliaType.area.name }}</h1>
+    <h1> 22{{ el.AnimaliaType.area.type }}</h1>
+
+    {% if el.img %}
+    <img src="{{el.img.url }}" alt="{{el.name }}">
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <a href="{{ el.get_delete_url }}">Удалить</a>
+    {% endif %}
+    <hr>
+    {% endfor %}
+
+</div>
+{% endblock %}

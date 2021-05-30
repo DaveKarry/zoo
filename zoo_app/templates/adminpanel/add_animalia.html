@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h>добавление типов животных на главную страницу</h>
+
+<h1>Новая запись в типы животных</h1>
+ <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+
+    </div>
+
+{% endblock %}

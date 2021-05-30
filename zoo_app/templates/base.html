@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="ru">
+<head>
+</head>
+<body>
+
+<div class="navbar">
+    {% if user.is_authenticated %}
+    <div class="out">
+        <a href="/out">Выйти</a>
+    </div>
+    {% else %}
+    <div class="register">
+        <a href="register">Регистрация</a>
+    </div>
+    <div class="login">
+        <a href="/accounts/login">Войти</a>
+    </div>
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <div class="adminPanel">
+        <a href="/adminpanel/index">Панель администратора </a>
+    </div>
+    {% endif %}
+    <div class="home">
+        <a href="/">Домашняя страница </a>
+    </div>
+</div>
+
+<div class="mt-5 pt-4">
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>
